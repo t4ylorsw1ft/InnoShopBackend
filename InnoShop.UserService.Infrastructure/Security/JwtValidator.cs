@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.Infrastructure.Security
+namespace InnoShop.UserService.Application.Interfaces.Security
 {
     public class JwtValidator : IJwtValidator
     {

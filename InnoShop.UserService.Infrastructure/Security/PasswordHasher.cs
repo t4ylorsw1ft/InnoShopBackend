@@ -1,6 +1,4 @@
-﻿using InnoShop.UserService.Application.Interfaces.Security;
-
-namespace Library.Infrastructure.Security
+﻿namespace InnoShop.UserService.Application.Interfaces.Security
 {
     public class PasswordHasher : IPasswordHasher
     {
