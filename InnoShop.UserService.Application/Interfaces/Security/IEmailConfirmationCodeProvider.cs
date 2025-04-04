@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InnoShop.UserService.Application.Interfaces.Security
 {
-    public interface IResetPasswortCodeProvider
+    public interface IEmailConfirmationCodeProvider
     {
         public string GenerateCode();
     }
