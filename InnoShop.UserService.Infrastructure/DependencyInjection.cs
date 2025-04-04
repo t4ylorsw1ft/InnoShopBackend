@@ -6,7 +6,6 @@ using InnoShop.UserService.Infrastructure.Repositories;
 using InnoShop.UserService.Infrastructure.Security;
 using InnoShop.UserService.Infrastructure.Security.Email;
 using InnoShop.UserService.Infrastructure.Services;
-using Library.Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,7 +29,8 @@ namespace InnoShop.UserService.Infrastructure
 
             services.AddScoped<IEmailService, EmailService>();
 
-            services.AddScoped<IResetPasswordCodeProvider, EmailConfirmationCodeProvider>();
+            services.AddScoped<IEmailConfirmationCodeProvider, EmailConfirmationCodeProvider>();
+            services.AddScoped<IResetPasswordCodeProvider, ResetPasswordCodeProvider>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();
             services.AddScoped<IJwtProvider, JwtProvider>();
             services.AddScoped<IJwtValidator, JwtValidator>();

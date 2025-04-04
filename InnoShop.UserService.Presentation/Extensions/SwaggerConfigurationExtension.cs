@@ -9,9 +9,9 @@ namespace Innoshop.UserService.Presentation.Extensions
         {
             services.AddSwaggerGen(c =>
             {
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+/*                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
+                c.IncludeXmlComments(xmlPath);*/
 
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
