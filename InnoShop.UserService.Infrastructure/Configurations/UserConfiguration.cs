@@ -36,10 +36,10 @@ namespace InnoShop.UserService.Infrastructure.Configurations
                 .HasConversion<int>();
 
             builder.Property(u => u.EmailConfirmationCodeHash) 
-                .HasMaxLength(6);
+                .HasMaxLength(100);
 
             builder.Property(u => u.ResetPasswordCodeHash)
-                .HasMaxLength(8);
+                .HasMaxLength(100);
 
             builder.HasIndex(u => u.Email).IsUnique();
             builder.HasIndex(u => u.RefreshToken).IsUnique();
