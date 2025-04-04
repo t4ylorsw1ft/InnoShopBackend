@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InnoShop.UserService.Infrastructure.Security.Email
 {
-    public class EmailConfirmationCodeProvider : IResetPasswordCodeProvider
+    public class EmailConfirmationCodeProvider : IEmailConfirmationCodeProvider
     {
         public string GenerateCode()
         {
