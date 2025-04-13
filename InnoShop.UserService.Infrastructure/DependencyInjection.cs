@@ -1,7 +1,9 @@
-﻿using InnoShop.UserService.Application.Interfaces.Security;
+﻿using InnoShop.UserService.Application.Interfaces.Clients;
+using InnoShop.UserService.Application.Interfaces.Security;
 using InnoShop.UserService.Application.Interfaces.Services;
 using InnoShop.UserService.Domain.Infrastructure;
 using InnoShop.UserService.Domain.Interfaces.Repositories;
+using InnoShop.UserService.Infrastructure.Clients;
 using InnoShop.UserService.Infrastructure.Repositories;
 using InnoShop.UserService.Infrastructure.Security;
 using InnoShop.UserService.Infrastructure.Security.Email;
@@ -17,13 +19,14 @@ namespace InnoShop.UserService.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             string connectionString = configuration["DbConnection"];
-            services.AddDbContext<AppDbContext>(
+            services.AddDbContext<UserServiceDbContext>(
                 options => options.UseSqlServer(connectionString));
-
 
             services.Configure<SmtpOptions>(configuration.GetSection(nameof(SmtpOptions)));
 
             services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
+
+
 
             services.AddScoped<IUserRepository, UserRepository>();
 
@@ -34,6 +37,8 @@ namespace InnoShop.UserService.Infrastructure
             services.AddScoped<IPasswordHasher, PasswordHasher>();
             services.AddScoped<IJwtProvider, JwtProvider>();
             services.AddScoped<IJwtValidator, JwtValidator>();
+            services.AddScoped<IProductServiceClient, ProductServiceClient>();
+
             return services;
         }
     }

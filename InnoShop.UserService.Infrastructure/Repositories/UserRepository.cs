@@ -12,9 +12,9 @@ namespace InnoShop.UserService.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private AppDbContext _context;
+        private UserServiceDbContext _context;
 
-        public UserRepository(AppDbContext context)
+        public UserRepository(UserServiceDbContext context)
         {
             _context = context;
         }

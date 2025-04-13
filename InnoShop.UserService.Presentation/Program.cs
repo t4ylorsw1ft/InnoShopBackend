@@ -1,7 +1,9 @@
 using Innoshop.UserService.Presentation.Extensions;
 using InnoShop.UserService.Application;
+using InnoShop.UserService.Application.Interfaces.Clients;
 using InnoShop.UserService.Domain.Infrastructure;
 using InnoShop.UserService.Infrastructure;
+using InnoShop.UserService.Infrastructure.Clients;
 using InnoShop.UserService.Infrastructure.Security;
 using InnoShop.UserService.Presentation.Middleware;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +31,17 @@ builder.Services.AddAuthorization(options =>
     });
 });
 
+builder.Services.AddHttpClient<IProductServiceClient, ProductServiceClient>(client =>
+{
+    client.BaseAddress = new Uri("http://localhost:7253");
+});
+/*.ConfigurePrimaryHttpMessageHandler(() =>
+{
+    var handler = new HttpClientHandler();
+    handler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+    return handler;
+});*/
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -47,7 +60,7 @@ app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    var dbContext = scope.ServiceProvider.GetRequiredService<UserServiceDbContext>();
     dbContext.Database.Migrate();
 }
 

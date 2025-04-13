@@ -17,24 +17,26 @@ namespace InnoShop.UserService.Infrastructure.Services
 
         public async Task SendEmailAsync(string userEmail, string subject, string body, CancellationToken cancellationToken)
         {
+/*
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress(_smtpOptions.SenderName, _smtpOptions.SenderEmail));
+            message.To.Add(new MailboxAddress("", userEmail));
+            message.Subject = subject;
+            message.Body = new TextPart("plain")
+            {
+                Text = body
+            };
 
-            /*            var message = new MimeMessage();
-                        message.From.Add(new MailboxAddress(_smtpOptions.SenderName, _smtpOptions.SenderEmail));
-                        message.To.Add(new MailboxAddress("", userEmail));
-                        message.Subject = subject;
-                        message.Body = new TextPart("plain")
-                        {
-                            Text = body
-                        };
-
-                        using (var client = new SmtpClient())
-                        {
-                            await client.ConnectAsync(_smtpOptions.Server, _smtpOptions.Port, false);
-                            await client.AuthenticateAsync(_smtpOptions.SenderEmail, _smtpOptions.Password);
-                            await client.SendAsync(message);
-
-                            await client.DisconnectAsync(true);
-                        }*/
+            using (var client = new SmtpClient())
+            {
+                await client.ConnectAsync(_smtpOptions.Server, _smtpOptions.Port, false, cancellationToken);
+                Console.WriteLine("Connect async");
+                await client.AuthenticateAsync(_smtpOptions.SenderEmail, _smtpOptions.Password, cancellationToken);
+                Console.WriteLine("Authenticate");
+                await client.SendAsync(message, cancellationToken);
+                Console.WriteLine("Send");
+                await client.DisconnectAsync(true, cancellationToken);
+            }*/
             Console.WriteLine($"{userEmail} || {body}");
         }
     }

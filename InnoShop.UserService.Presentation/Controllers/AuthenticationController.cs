@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace InnoShop.UserService.Presentation.Controllers
 {
-    [Route("api/users/authentication")]
+    [Route("api/users")]
     [ApiController]
     public class AuthenticationController : ControllerBase
     {

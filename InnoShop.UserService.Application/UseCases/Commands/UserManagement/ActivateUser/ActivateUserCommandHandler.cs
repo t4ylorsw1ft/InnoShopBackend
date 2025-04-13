@@ -1,22 +1,22 @@
 ﻿using InnoShop.UserService.Application.Common.Exceptions;
-using InnoShop.UserService.Application.UseCases.Commands.Management.Deactivate;
+using InnoShop.UserService.Application.Interfaces.Clients;
 using InnoShop.UserService.Domain.Entities;
 using InnoShop.UserService.Domain.Interfaces.Repositories;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InnoShop.UserService.Application.UseCases.Commands.Management.Activate
 {
     public class ActivateUserCommandHandler : IRequestHandler<ActivateUserCommand>
     {
         private readonly IUserRepository _userRepository;
-        public ActivateUserCommandHandler(IUserRepository userRepository)
+        private readonly IProductServiceClient _productServiceClient;
+
+        public ActivateUserCommandHandler(
+            IUserRepository userRepository,
+            IProductServiceClient productServiceClient)
         {
             _userRepository = userRepository;
+            _productServiceClient = productServiceClient;
         }
         public async Task Handle(ActivateUserCommand request, CancellationToken cancellationToken)
         {
@@ -30,6 +30,7 @@ namespace InnoShop.UserService.Application.UseCases.Commands.Management.Activate
 
             user.IsActive = true;
             await _userRepository.UpdateAsync(user, cancellationToken);
+            await _productServiceClient.ActivateProductsByUserIdAsync(user.Id, cancellationToken);
         }
     }
 }

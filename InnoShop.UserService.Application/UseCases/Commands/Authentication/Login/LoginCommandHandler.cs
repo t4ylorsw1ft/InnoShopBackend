@@ -50,7 +50,5 @@ namespace InnoShop.UserService.Application.UseCases.Commands.Authentication.Logi
 
             return jwtPair;
         }
-
-
     }
 }

@@ -47,5 +47,5 @@ namespace InnoShop.UserService.Application.UseCases.Commands.PasswordReset.Reset
             else
                 throw new Exception("Invalid code");
         }
-    }
+    }   
 }

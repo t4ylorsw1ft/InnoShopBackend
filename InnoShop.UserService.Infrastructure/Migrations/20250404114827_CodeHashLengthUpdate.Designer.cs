@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace InnoShop.UserService.Infrastructure.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    [DbContext(typeof(UserServiceDbContext))]
     [Migration("20250404114827_CodeHashLengthUpdate")]
     partial class CodeHashLengthUpdate
     {

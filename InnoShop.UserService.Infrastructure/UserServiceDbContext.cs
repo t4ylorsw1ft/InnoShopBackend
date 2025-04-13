@@ -1,15 +1,14 @@
 using InnoShop.UserService.Domain.Entities;
 using InnoShop.UserService.Infrastructure.Configurations;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
 
 namespace InnoShop.UserService.Domain.Infrastructure
 {
-    public class AppDbContext : DbContext
+    public class UserServiceDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
 
-        public AppDbContext(DbContextOptions<AppDbContext> options)
+        public UserServiceDbContext(DbContextOptions<UserServiceDbContext> options)
             : base(options)
         {
 

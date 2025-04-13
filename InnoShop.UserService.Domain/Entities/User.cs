@@ -29,5 +29,5 @@ namespace InnoShop.UserService.Domain.Entities
 
         public string? ResetPasswordCodeHash {  get; set; }
         public DateTime ResetSendDateTime { get; set; }
-}
+    }
 }

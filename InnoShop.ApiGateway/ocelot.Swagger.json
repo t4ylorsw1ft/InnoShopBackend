@@ -1,0 +1,24 @@
+{
+  "SwaggerEndPoints": [
+    {
+      "Key": "users",
+      "Config": [
+        {
+          "Name": "User Service",
+          "Version": "v1",
+          "Url": "https://localhost:7087/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "products",
+      "Config": [
+        {
+          "Name": "Product Service",
+          "Version": "v1",
+          "Url": "https://localhost:7253/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
+}
