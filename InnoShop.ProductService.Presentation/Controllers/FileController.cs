@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace InnoShop.ProductService.Presentation.Controllers
 {
+    [Route("api/file")]
+    [ApiController]
     public class FileController : ControllerBase
     {
         private readonly IMediator _mediator;
