@@ -30,6 +30,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnoShop,ProductService.Tests.Unit", "InnoShop,ProductService.Tests.Unit\InnoShop,ProductService.Tests.Unit.csproj", "{689CD83E-BD6D-41AD-89AF-7E2303AF0F13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{D05A1A91-1D20-441A-83D1-D0CBE122BD96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D05A1A91-1D20-441A-83D1-D0CBE122BD96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D05A1A91-1D20-441A-83D1-D0CBE122BD96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{689CD83E-BD6D-41AD-89AF-7E2303AF0F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{689CD83E-BD6D-41AD-89AF-7E2303AF0F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{689CD83E-BD6D-41AD-89AF-7E2303AF0F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{689CD83E-BD6D-41AD-89AF-7E2303AF0F13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +91,7 @@ Global
 		{4FD5EF2B-DE7C-4F36-8652-1A81095168D5} = {4003987D-EBE1-4D38-9893-5EDF39F7DF98}
 		{A2B65E84-3FA0-421E-B954-B109FEE76EDB} = {4003987D-EBE1-4D38-9893-5EDF39F7DF98}
 		{2512146A-6463-4032-8F00-AAE2A6A65FC4} = {4003987D-EBE1-4D38-9893-5EDF39F7DF98}
+		{689CD83E-BD6D-41AD-89AF-7E2303AF0F13} = {4003987D-EBE1-4D38-9893-5EDF39F7DF98}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E004C849-F752-4610-B77E-CAD225FA9A15}

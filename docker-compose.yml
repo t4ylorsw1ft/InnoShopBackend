@@ -1,37 +1,56 @@
-
 services:
-  userservice:
-    build:
-      context: .
-      dockerfile: InnoShop.UserService.Presentation/Dockerfile
-    container_name: userservice
-    ports:
-      - "7087:8080"
-    environment:
-      - ASPNETCORE_URLS=http://+:8080
-      - ASPNETCORE_ENVIRONMENT=Development
+    userservice:
+        build:
+            context: .
+            dockerfile: InnoShop.UserService.Presentation/Dockerfile
+        container_name: userservice
+        ports:
+            - "5001:8080"
+        depends_on:
+            - sqlserver
+        environment:
+            - ASPNETCORE_URLS=http://+:8080
+            - ASPNETCORE_ENVIRONMENT=Development
 
-  productservice:
-    build:
-      context: .
-      dockerfile: InnoShop.ProductService.Presentation/Dockerfile
-    container_name: productservice
-    ports:
-      - "7253:8080"
-    environment:
-      - ASPNETCORE_URLS=http://+:8080
-      - ASPNETCORE_ENVIRONMENT=Development
+    productservice:
+        build:
+            context: .
+            dockerfile: InnoShop.ProductService.Presentation/Dockerfile
+        container_name: productservice
+        ports:
+            - "5029:8080"
+        depends_on:
+            - sqlserver
+        environment:
+            - ASPNETCORE_URLS=http://+:8080
+            - ASPNETCORE_ENVIRONMENT=Development
 
-  apigateway:
-    build:
-      context: .
-      dockerfile: InnoShop.ApiGateway/Dockerfile
-    container_name: apigateway
-    ports:
-      - "7000:8080"
-    depends_on:
-      - userservice
-      - productservice
-    environment:
-      - ASPNETCORE_URLS=http://+:8080
-      - ASPNETCORE_ENVIRONMENT=Development
+    apigateway:
+        build:
+            context: .
+            dockerfile: InnoShop.ApiGateway/Dockerfile
+        container_name: apigateway
+        ports:
+            - "5109:8080"
+        depends_on:
+            - userservice
+            - productservice
+            - sqlserver
+        environment:
+            - ASPNETCORE_URLS=http://+:8080
+            - ASPNETCORE_ENVIRONMENT=Development
+
+
+    sqlserver:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        container_name: sqlserver
+        environment:    
+            SA_PASSWORD: "Ivan!5000"
+            ACCEPT_EULA: "Y"
+        ports:
+            - "1433:1433"
+        volumes:
+            - sql_data:/var/opt/mssql
+
+volumes:
+    sql_data:

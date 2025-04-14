@@ -33,14 +33,8 @@ builder.Services.AddAuthorization(options =>
 
 builder.Services.AddHttpClient<IProductServiceClient, ProductServiceClient>(client =>
 {
-    client.BaseAddress = new Uri("http://localhost:7253");
+    client.BaseAddress = new Uri("http://productservice:8080");
 });
-/*.ConfigurePrimaryHttpMessageHandler(() =>
-{
-    var handler = new HttpClientHandler();
-    handler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
-    return handler;
-});*/
 
 var app = builder.Build();
 

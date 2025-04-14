@@ -40,15 +40,8 @@ builder.Services.AddAuthorization(options =>
 
 builder.Services.AddHttpClient<IUserServiceClient, UserServiceClient>(client =>
 {
-    client.BaseAddress = new Uri("http://localhost:7087");
+    client.BaseAddress = new Uri("http://userservice:8080");
 });
-/*.ConfigurePrimaryHttpMessageHandler(() =>
-{
-    var handler = new HttpClientHandler();
-    handler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
-    return handler;
-});
-*/
 
 var app = builder.Build();
 
