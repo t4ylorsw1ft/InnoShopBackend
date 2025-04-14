@@ -17,7 +17,7 @@ namespace InnoShop.UserService.Infrastructure.Services
 
         public async Task SendEmailAsync(string userEmail, string subject, string body, CancellationToken cancellationToken)
         {
-/*
+
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(_smtpOptions.SenderName, _smtpOptions.SenderEmail));
             message.To.Add(new MailboxAddress("", userEmail));
@@ -36,7 +36,8 @@ namespace InnoShop.UserService.Infrastructure.Services
                 await client.SendAsync(message, cancellationToken);
                 Console.WriteLine("Send");
                 await client.DisconnectAsync(true, cancellationToken);
-            }*/
+            }
+
             Console.WriteLine($"{userEmail} || {body}");
         }
     }
